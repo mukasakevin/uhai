@@ -1,0 +1,20 @@
+{
+  "name": "uhai-ngo",
+  "version": "1.0.0",
+  "description": "Site web premium pour l'ONG Uhai",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "keywords": [
+    "ngo",
+    "uhai",
+    "humanitarian"
+  ],
+  "author": "Uhai Team",
+  "license": "ISC"
+}
