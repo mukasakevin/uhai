@@ -1,189 +1,127 @@
+/**
+ * main.js — Logique spécifique aux pages.
+ * Charge en dernier, après cms.js et ui.js.
+ *
+ * Responsabilités :
+ *   - Appeler le CMS au chargement (défini dans cms.js)
+ *   - Filtrage des projets (page /projects)
+ *   - Accordéon FAQ (page /contact)
+ *   - Chargement dynamique des objectifs/causes (page /actions)
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Gestion du Header au scroll (Auto-hide)
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
 
-    window.addEventListener('scroll', () => {
-        // Opacité (scrolled)
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Apparition / Disparition dynamique
-        if (window.scrollY > lastScrollY && window.scrollY > 150) {
-            // Scroll vers le bas -> Cacher le header
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scroll vers le haut -> Montrer le header
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollY = window.scrollY;
-    });
-
-    // 2. Menu Burger Mobile
-    const burgerMenu = document.querySelector('.burger-menu');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (burgerMenu && navLinks) {
-        burgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = burgerMenu.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
+    // ── Charger le CMS (défini dans cms.js) ───────────────────────────────
+    if (typeof window.loadDynamicCMS === 'function') {
+        window.loadDynamicCMS();
     }
 
-    // 3. Gestion de la Modale de Don
-    const modal = document.getElementById('donation-modal');
-    const donateButtons = document.querySelectorAll('.donate-btn');
-    const closeModal = document.querySelector('.modal-close');
-    const amountButtons = document.querySelectorAll('.amount-btn');
-    const customAmountInput = document.getElementById('custom-amount');
-
-    if (modal) {
-        donateButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Sélection du montant de don
-        amountButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                amountButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                if (customAmountInput) customAmountInput.value = '';
-            });
-        });
-
-        if (customAmountInput) {
-            customAmountInput.addEventListener('input', () => {
-                amountButtons.forEach(b => b.classList.remove('active'));
-            });
-        }
-    }
-
-    // 4. Filtrage dynamique des projets (Page Projets)
-    const filterTabs = document.querySelectorAll('.filter-tab');
+    // ── Filtrage des projets (page /projects) ─────────────────────────────
+    const filterTabs   = document.querySelectorAll('.filter-tab');
     const projectCards = document.querySelectorAll('.project-card');
 
-    if (filterTabs.length > 0 && projectCards.length > 0) {
+    if (filterTabs.length && projectCards.length) {
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Gestion de la classe active
                 filterTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-
                 const filter = tab.getAttribute('data-filter');
-
                 projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
+                    const match = filter === 'all' || card.getAttribute('data-category') === filter;
+                    if (match) {
                         card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
                     } else {
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
+                        setTimeout(() => { card.style.display = 'none'; }, 300);
                     }
                 });
             });
         });
     }
 
-    // 5. Accordéon FAQ (Page Contact)
+    // ── Accordéon FAQ (page /contact) ─────────────────────────────────────
     const faqItems = document.querySelectorAll('.faq-item');
-
-    if (faqItems.length > 0) {
+    if (faqItems.length) {
         faqItems.forEach(item => {
-            const header = item.querySelector('.faq-header');
-            header.addEventListener('click', () => {
+            item.querySelector('.faq-header')?.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Fermer tous les autres
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    const otherBody = otherItem.querySelector('.faq-body');
-                    if (otherBody) otherBody.style.maxHeight = null;
+                // Fermer tous
+                faqItems.forEach(other => {
+                    other.classList.remove('active');
+                    const body = other.querySelector('.faq-body');
+                    if (body) body.style.maxHeight = null;
                 });
-
+                // Ouvrir celui cliqué si pas actif
                 if (!isActive) {
                     item.classList.add('active');
                     const body = item.querySelector('.faq-body');
-                    if (body) body.style.maxHeight = body.scrollHeight + "px";
+                    if (body) body.style.maxHeight = body.scrollHeight + 'px';
                 }
             });
         });
     }
 
-    // 6. Animation des chiffres clés (Compteurs)
-    const impactNumbers = document.querySelectorAll('.impact-number');
-    let animated = false;
+    // ── Chargement dynamique des objectifs depuis l'API (page /actions) ───
+    const objectivesGrid = document.getElementById('objectives-grid');
+    if (objectivesGrid) {
+        const iconMap = {
+            trauma: 'fas fa-heartbeat',      conflit: 'fas fa-dove',
+            transformation: 'fas fa-dove',   genre: 'fas fa-female',
+            femme: 'fas fa-female',           vbg: 'fas fa-female',
+            reproduction: 'fas fa-user-friends', santé: 'fas fa-user-friends',
+            alimentaire: 'fas fa-seedling',   sécurité: 'fas fa-seedling',
+            environnement: 'fas fa-tree',     enfance: 'fas fa-child',
+            enfant: 'fas fa-child',           protection: 'fas fa-child',
+        };
+        const idIconMap = [null,'fas fa-heartbeat','fas fa-dove','fas fa-female','fas fa-user-friends','fas fa-seedling','fas fa-tree','fas fa-child'];
 
-    const animateNumbers = () => {
-        impactNumbers.forEach(number => {
-            const target = parseInt(number.getAttribute('data-target'));
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    clearInterval(timer);
-                    number.textContent = target + (number.getAttribute('data-suffix') || '');
-                } else {
-                    number.textContent = Math.ceil(current) + (number.getAttribute('data-suffix') || '');
-                }
-            }, 30);
-        });
-    };
-
-    const checkScroll = () => {
-        const impactSection = document.querySelector('.impact-section');
-        if (impactSection && !animated) {
-            const rect = impactSection.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                animateNumbers();
-                animated = true;
-                window.removeEventListener('scroll', checkScroll);
+        function getIcon(title, id) {
+            const t = title.toLowerCase();
+            for (const [key, icon] of Object.entries(iconMap)) {
+                if (t.includes(key)) return icon;
             }
+            return idIconMap[id] || 'fas fa-check-circle';
         }
-    };
 
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Vérifier au chargement
+        const imageMap = {
+            trauma: 'images/trauma_healing.jpg',      conflit: 'images/conflict_resolution.jpg',
+            transformation: 'images/conflict_resolution.jpg', genre: 'images/gender_violence_fight.png',
+            femme: 'images/gender_violence_fight.png', vbg: 'images/gender_violence_fight.png',
+            reproduction: 'images/reproductive_health.png',   alimentaire: 'images/food_security.jpg',
+            sécurité: 'images/food_security.jpg',     environnement: 'images/environment.png',
+            enfance: 'images/child_protection.jpg',   enfant: 'images/child_protection.jpg',
+        };
 
-    // 5. Slider Hero (Diaporama)
-    const heroSlides = document.querySelectorAll('.hero-bg-slide');
-    if (heroSlides.length > 1) {
-        let currentSlide = 0;
-        setInterval(() => {
-            heroSlides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % heroSlides.length;
-            heroSlides[currentSlide].classList.add('active');
-        }, 5000); // Change d'image toutes les 5 secondes
+        function getImage(title, dbImage) {
+            const t = title.toLowerCase();
+            for (const [key, img] of Object.entries(imageMap)) {
+                if (t.includes(key)) return img;
+            }
+            return dbImage && !dbImage.startsWith('causes/') ? dbImage : 'images/trauma_healing.jpg';
+        }
+
+        fetch('/api/causes')
+            .then(res => res.json())
+            .then(causes => {
+                if (!causes?.length) return;
+                objectivesGrid.innerHTML = causes.map((cause, i) => {
+                    const cleanDesc = (cause.excerpt || cause.detail || '').replace(/<[^>]*>/g, '');
+                    return `
+                    <div class="objective-card">
+                        <div class="objective-img">
+                            <img src="${getImage(cause.title, cause.image)}" alt="${cause.title}">
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-icon"><i class="${getIcon(cause.title, cause.id || i + 1)}"></i></div>
+                            <h3 class="objective-title">${cause.title}</h3>
+                            <p class="objective-desc">${cleanDesc}</p>
+                        </div>
+                    </div>`;
+                }).join('');
+            })
+            .catch(err => console.error('Erreur chargement objectifs :', err));
     }
+
 });

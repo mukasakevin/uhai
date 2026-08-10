@@ -8,7 +8,74 @@
     <meta name="description"
         content="Contactez le Centre UHAI en RDC pour un partenariat, un soutien, une demande presse ou toute autre question.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=2">
+    <style>
+        .contact-wrapper {
+            background: #f8fafc !important;
+            border-radius: 2rem !important;
+            box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08) !important;
+            border: 1px solid rgba(15, 23, 42, 0.08) !important;
+        }
+
+        .contact-info {
+            background: linear-gradient(180deg, #0f172a 0%, #111827 100%) !important;
+            color: #ffffff !important;
+            padding: 4rem !important;
+        }
+
+        .contact-info::before {
+            background: linear-gradient(135deg, #2B4C9B 0%, #00A896 40%, #F29E38 70%, #EF233C 100%) !important;
+        }
+
+        .contact-info-title,
+        .contact-info h4,
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .info-items {
+            gap: 2rem !important;
+            margin: 3rem 0 !important;
+        }
+
+        .contact-form-container {
+            background: #ffffff !important;
+            padding: 4rem !important;
+        }
+
+        .form-grid {
+            gap: 2.5rem !important;
+            margin-bottom: 2.5rem !important;
+        }
+
+        .form-label {
+            color: #0f172a !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+        }
+
+        .form-control {
+            padding: 1.25rem 1.5rem !important;
+            border-radius: 18px !important;
+            border: 1px solid rgba(15, 23, 42, 0.16) !important;
+            background: #f8fafc !important;
+            color: #0f172a !important;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05) !important;
+        }
+
+        .form-control:focus {
+            border-color: #00A896 !important;
+            box-shadow: 0 0 0 5px rgba(0, 168, 150, 0.14) !important;
+        }
+
+        textarea.form-control {
+            min-height: 220px !important;
+        }
+
+        .btn.btn-primary {
+            padding: 1rem 2rem !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +97,7 @@
     </header>
 
     <!-- Contact Section (PAGE 14) -->
-    <section class="section" style="padding-top: 12rem;">
+    <section class="section" style="padding-top: 7rem;">
         <div class="container">
             <h1 class="section-title">Travaillons ensemble</h1>
             <p class="section-subtitle">Vous êtes une organisation, un bailleur, un journaliste ou simplement une
@@ -55,28 +122,28 @@
                                 <div class="info-icon"><i class="fas fa-envelope"></i></div>
                                 <div class="info-detail">
                                     <h4>Email Général</h4>
-                                    <p>contact@hrlcentreuhai.org</p>
+                                    <p>contact@centreuhai.org</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-handshake"></i></div>
                                 <div class="info-detail">
                                     <h4>Partenariats</h4>
-                                    <p>partenariats@hrlcentreuhai.org</p>
+                                    <p>partenariats@centreuhai.org</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-newspaper"></i></div>
                                 <div class="info-detail">
                                     <h4>Presse</h4>
-                                    <p>presse@hrlcentreuhai.org</p>
+                                    <p>presse@centreuhai.org</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-globe"></i></div>
                                 <div class="info-detail">
                                     <h4>Site Officiel</h4>
-                                    <p>www.hrlcentreuhai.org</p>
+                                    <p>www.centreuhai.org</p>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +151,7 @@
 
                     <div>
                         <h4 style="color: white; margin-bottom: 1rem; font-size: 1.1rem;">Réseaux Sociaux
-                            (@hrlcentreuhai)</h4>
+                            (@centreuhai)</h4>
                         <div class="social-links">
                             <a href="https://www.facebook.com/hrlcentreuhai?_rdc=1&_rdr#" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.linkedin.com/company/hrlcentreuhai/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -205,6 +272,8 @@
         </div>
     </footer>
 
+    <script src="/js/cms.js"></script>
+    <script src="/js/ui.js"></script>
     <script src="/js/main.js"></script>
 </body>
 

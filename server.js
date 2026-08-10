@@ -1,45 +1,32 @@
+
+
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 
-const app = express();
+const publicRoutes = require('./src/routes/public');
+const adminRoutes = require('./src/routes/admin');
+const pageRoutes = require('./src/routes/pages');
 
-// ✅ Render / local compatible
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Servir les fichiers statiques
+// ─── Middlewares globaux ──────────────────────────────────────────────────────
+app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// ─── Routes ──────────────────────────────────────────────────────────────────
+app.use('/api', publicRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/', pageRoutes);
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
-
-app.get('/approach', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'approach.html'));
-});
-
-app.get('/actions', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'actions.html'));
-});
-
-app.get('/projects', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'projects.html'));
-});
-
-app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
-});
-
-// 404 fallback
+// ─── 404 Fallback ─────────────────────────────────────────────────────────────
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start server (Render compatible)
+// ─── Démarrage ────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-    console.log(`Serveur Centre Uhai en cours d'exécution sur port ${PORT}`);
+    console.log(`✅ Serveur Centre UHAI démarré sur http://localhost:${PORT}`);
 });

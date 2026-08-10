@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+
+# Environnement (NE JAMAIS COMMITTER)
+.env
+
+# Base de données SQLite
+data/uhai.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+*.swp
+*.swo

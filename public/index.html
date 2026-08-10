@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre UHAI - HRL | Guérir, Reconstruire et Vivre</title>
-    <meta name="description"
-        content="Le Centre UHAI accompagne les communautés de l'Est de la RDC pour répondre à la transmission intergénérationnelle du traumatisme et bâtir la paix.">
+    <meta name="description" content="Le Centre UHAI accompagne les communautés de l'Est de la RDC pour répondre à la transmission intergénérationnelle du traumatisme et bâtir la paix.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
+
+    <!-- Bandeau urgence (style IRC Crisis Watch) -->
+    <div class="crisis-bar">
+        <div class="container crisis-bar__inner">
+            <span class="crisis-bar__dot"></span>
+            <span class="crisis-bar__text">Est de la RDC — La crise persiste. Des milliers de familles déplacées ont besoin de soutien.</span>
+            <a href="/projects" class="crisis-bar__link">Agir maintenant <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container navbar">
@@ -21,7 +28,7 @@
                 <a href="/about" class="nav-link">Qui sommes-nous</a>
                 <a href="/approach" class="nav-link">Notre approche HRL</a>
                 <a href="/actions" class="nav-link">Nos actions</a>
-                <a href="/projects" class="nav-link">Projets & Impact</a>
+                <a href="/projects" class="nav-link">Projets &amp; Impact</a>
                 <a href="/contact" class="nav-link">Contact</a>
                 <button class="btn btn-primary donate-btn">Faire un don</button>
             </nav>
@@ -29,87 +36,165 @@
         </div>
     </header>
 
-    <!-- Hero Section (PAGE 01) -->
+    <!-- Hero immersif -->
     <section class="immersive-hero">
         <div class="hero-slider">
             <div class="hero-bg-slide active" style="background-image: url('/images/hero_image.png');"></div>
             <div class="hero-bg-slide" style="background-image: url('/images/hero_image_2.jpeg');"></div>
         </div>
+        <div class="hero-video-bg">
+            <video id="hero-bg-video" autoplay muted loop playsinline preload="auto">
+                <source src="/Anglais Vidéo 3.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-bg-overlay"></div>
         <div class="container relative-z">
             <div class="hero-content immersive-content">
-                <h1 class="hero-title text-white">Guérir, Reconstruire et <span>Vivre</span>.</h1>
-                <p class="hero-description text-white">Le Centre UHAI accompagne les communautés de l’Est de la
-                    République Démocratique du Congo pour répondre à la transmission intergénérationnelle du traumatisme
-                    et de la violence, et bâtir une société où chaque citoyen recouvre sa guérison, se reconstruit et
-                    vit pleinement en paix.</p>
+                <p class="hero-eyebrow">Est de la République Démocratique du Congo</p>
+                <h1 class="hero-title text-white">Guérir, Reconstruire<br>et <span>Vivre</span>.</h1>
+                <p class="hero-description text-white">Nous accompagnons les communautés traumatisées par les conflits pour briser le cycle intergénérationnel de la violence et bâtir une paix durable.</p>
                 <div class="hero-actions">
-                    <a href="/approach" class="btn btn-primary">Découvrir notre approche</a>
-                    <a href="/projects" class="btn btn-secondary">Soutenir un projet</a>
+                    <button class="btn btn-primary donate-btn hero-cta">Faire un don</button>
+                    <a href="/approach" class="btn btn-ghost hero-cta">Notre approche <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
+        <div class="hero-scroll-hint">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
-    <!-- Bloc Notre mission en bref (PAGE 01) -->
-    <section class="section" style="background: var(--bg-surface);">
+    <!-- Notre mission (renommé, sans "en bref") -->
+    <section class="section mission-section">
         <div class="container">
-            <h2 class="section-title">Notre mission en bref</h2>
-            <p class="section-subtitle" style="max-width: 900px; font-size: 1.25rem;">Nous sommes une organisation non
-                gouvernementale (ASBL) qui déploie le programme HRL — Healing, Rebuilding and Living — dans toute la
-                partie Est de la RDC. Notre approche est communautaire, accessible à tous, et orientée vers la cohésion
-                sociale.</p>
-            <p class="section-subtitle" style="max-width: 900px; margin-top: -2rem;">À travers la sociothérapie à la
-                base, l’éducation à la paix et le plaidoyer, nous donnons aux communautés les moyens de transformer
-                leurs blessures en force collective.</p>
-
-            <div class="pillars-grid" style="margin-top: 4rem;">
-                <!-- Pilier 1 -->
-                <div class="pillar-card">
-                    <div class="pillar-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3 class="pillar-title">Guérir</h3>
-                    <p class="pillar-desc">Accompagner les personnes traumatisées à exprimer la perte, le deuil et la
-                        colère, et retrouver leur capacité intérieure de guérison.</p>
+            <div class="mission-layout">
+                <div class="mission-text-col">
+                    <p class="section-eyebrow">Notre mission</p>
+                    <h2 class="mission-title">Une organisation née de l'urgence du terrain</h2>
+                    <p class="mission-body">Le Centre UHAI est une ASBL congolaise qui déploie le programme <strong>HRL — Healing, Rebuilding and Living</strong> dans l'Est de la RDC. Notre approche est communautaire, accessible à tous, et orientée vers la cohésion sociale.</p>
+                    <p class="mission-body">À travers la sociothérapie à la base, l'éducation à la paix et le plaidoyer, nous donnons aux communautés les moyens de transformer leurs blessures en force collective.</p>
+                    <a href="/about" class="btn btn-outline" style="margin-top:1.5rem;">Découvrir notre histoire</a>
                 </div>
-                <!-- Pilier 2 -->
-                <div class="pillar-card">
-                    <div class="pillar-icon"><i class="fas fa-people-carry"></i></div>
-                    <h3 class="pillar-title">Reconstruire</h3>
-                    <p class="pillar-desc">Renforcer la cohésion sociale, la résolution non-violente des conflits et
-                        l’éducation à la paix dans les communautés à la base.</p>
-                </div>
-                <!-- Pilier 3 -->
-                <div class="pillar-card">
-                    <div class="pillar-icon"><i class="fas fa-dove"></i></div>
-                    <h3 class="pillar-title">Vivre</h3>
-                    <p class="pillar-desc">Bâtir des communautés saines, équitables et résilientes où chacun trouve sa
-                        place et participe pleinement à la vie collective.</p>
+                <div class="mission-pillars-col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3 class="pillar-title">Guérir</h3>
+                        <p class="pillar-desc">Accompagner les personnes traumatisées à exprimer la perte, le deuil et la colère, et retrouver leur capacité intérieure de guérison.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-people-carry"></i></div>
+                        <h3 class="pillar-title">Reconstruire</h3>
+                        <p class="pillar-desc">Renforcer la cohésion sociale, la résolution non-violente des conflits et l'éducation à la paix dans les communautés.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fas fa-dove"></i></div>
+                        <h3 class="pillar-title">Vivre</h3>
+                        <p class="pillar-desc">Bâtir des communautés résilientes où chacun trouve sa place et participe pleinement à la vie collective.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Chiffres Clés (PAGE 01) -->
+    <!-- Chiffres clés -->
     <section class="impact-section">
         <div class="container">
             <div class="impact-grid">
                 <div class="impact-card">
-                    <div class="impact-number" data-target="12000" data-suffix="+">12000</div>
+                    <div class="impact-number" data-target="12000" data-suffix="+">12000+</div>
                     <div class="impact-label">Personnes touchées par la sociothérapie</div>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-number" data-target="20" data-suffix="+">20+</div>
-                    <div class="impact-label">Formations
-                        Tenus avec les asbl de la société civile et étudiants des universités.</div>
+                    <div class="impact-number" data-target="600" data-suffix="+">600+</div>
+                    <div class="impact-label">Sessions communautaires tenues</div>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-number" data-target="600" data-suffix="+">600+</div>
-                    <div class="impact-label">Sessions
-                        Tenues avec la communauté ayant été exposé aux traumatismes.</div>
+                    <div class="impact-number" data-target="20" data-suffix="+">20+</div>
+                    <div class="impact-label">Formations avec la société civile</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="8" data-suffix=" ans">8 ans</div>
+                    <div class="impact-label">D'expérience sur le terrain</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Témoignage du terrain (style Mercy Corps "Stories") -->
+    <section class="testimony-section">
+        <div class="testimony-bg" style="background-image: url('/images/trauma_healing.jpg');"></div>
+        <div class="testimony-overlay"></div>
+        <div class="container testimony-content">
+            <i class="fas fa-quote-left testimony-quote-icon"></i>
+            <blockquote class="testimony-text">
+                Avant de participer aux sessions de sociothérapie, je ne pouvais pas parler de ce que j'avais vécu. Aujourd'hui, je suis devenue facilitatrice dans ma communauté. La guérison est possible.
+            </blockquote>
+            <cite class="testimony-author">— Marie N., survivante et facilitatrice communautaire, Nord-Kivu</cite>
+            <a href="/actions" class="btn btn-ghost" style="margin-top:2rem;">Lire d'autres témoignages</a>
+        </div>
+    </section>
+
+    <!-- Projets à soutenir (style IRC "Featured Causes") -->
+    <section class="section" style="background:var(--bg-surface);">
+        <div class="container">
+            <p class="section-eyebrow" style="text-align:center;">Soutenez notre travail</p>
+            <h2 class="section-title">Trois projets concrets à financer</h2>
+            <p class="section-subtitle">Chacun répond à un besoin urgent identifié sur le terrain. Votre contribution, quelle que soit sa taille, fait une différence réelle.</p>
+
+            <div class="projects-grid" style="margin-top:3rem;">
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <span class="project-category">Sociothérapie</span>
+                        <img src="/images/trauma_healing.jpg" alt="Centre d'encadrement en sociothérapie">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Centre d'encadrement en sociothérapie</h3>
+                        <p class="project-desc">Construction d'un espace de partage communautaire pour les personnes traumatisées : filles-mères, enfants de la rue, victimes de VBG.</p>
+                        <div class="project-footer">
+                            <span style="font-family:'Outfit';font-weight:600;font-size:0.85rem;color:var(--text-muted);">Reçu fiscal disponible</span>
+                            <button class="btn btn-primary donate-btn" style="padding:0.5rem 1.2rem;font-size:0.88rem;">Soutenir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <span class="project-category">Plaidoyer</span>
+                        <img src="/images/conflict_resolution.jpg" alt="Réseaux de plaidoyer à la base">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Réseaux de plaidoyer à la base</h3>
+                        <p class="project-desc">Mise en place de réseaux communautaires pour analyser et enrayer la transmission intergénérationnelle des traumatismes dans l'Est de la RDC.</p>
+                        <div class="project-footer">
+                            <span style="font-family:'Outfit';font-weight:600;font-size:0.85rem;color:var(--text-muted);">Reçu fiscal disponible</span>
+                            <button class="btn btn-primary donate-btn" style="padding:0.5rem 1.2rem;font-size:0.88rem;">Soutenir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <span class="project-category">Économie</span>
+                        <img src="/images/food_security.jpg" alt="Activités génératrices de revenu">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Activités génératrices de revenu</h3>
+                        <p class="project-desc">Soutenir les survivants des guerres par des AGR pour favoriser leur réintégration durable et leur indépendance économique.</p>
+                        <div class="project-footer">
+                            <span style="font-family:'Outfit';font-weight:600;font-size:0.85rem;color:var(--text-muted);">Reçu fiscal disponible</span>
+                            <button class="btn btn-primary donate-btn" style="padding:0.5rem 1.2rem;font-size:0.88rem;">Soutenir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:3rem;">
+                <a href="/projects" class="btn btn-outline">Voir tous les projets &amp; l'impact <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Modal Don -->
     <div class="modal" id="donation-modal" role="dialog" aria-modal="true">
@@ -127,53 +212,54 @@
                 <label class="form-label" for="custom-amount">Montant personnalisé (FC ou USD)</label>
                 <input type="text" class="form-control" id="custom-amount" placeholder="Autre montant">
             </div>
-            <button class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Confirmer le don</button>
+            <button class="btn btn-primary" style="width:100%; margin-top:2rem;">Confirmer le don</button>
         </div>
     </div>
 
-    <!-- Footer (PAGE 15) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-about">
-                <a href="/" class="logo" style="display: inline-block; margin-bottom: 1.5rem;">
-                    <img src="/images/logo.png" alt="Centre Uhai" style="height: 160px; width: auto;">
+                <a href="/" class="logo" style="display:inline-block; margin-bottom:1.5rem;">
+                    <img src="/images/logo.png" alt="Centre Uhai" style="height:100px; width:auto;">
                 </a>
-                <p>Centre UHAI — HRL. Une organisation non gouvernementale œuvrant en RDC pour la guérison du
-                    traumatisme, la consolidation de la paix et la cohésion sociale.</p>
+                <p>Centre UHAI — HRL. Organisation non gouvernementale œuvrant en RDC pour la guérison du traumatisme, la consolidation de la paix et la cohésion sociale.</p>
+                <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                    <a href="#" style="color:var(--text-muted); font-size:1.25rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color:var(--text-muted); font-size:1.25rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color:var(--text-muted); font-size:1.25rem;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
             <div class="footer-links-col">
-                <h4 class="footer-title">Liens rapides</h4>
+                <h4 class="footer-title">Navigation</h4>
                 <div class="footer-links">
                     <a href="/about" class="footer-link">Qui sommes-nous</a>
                     <a href="/approach" class="footer-link">Notre approche HRL</a>
                     <a href="/actions" class="footer-link">Nos actions</a>
-                    <a href="/projects" class="footer-link">Projets</a>
-                    <a href="/projects" class="footer-link">Impact</a>
+                    <a href="/projects" class="footer-link">Projets &amp; Impact</a>
                     <a href="/contact" class="footer-link">Contact</a>
                 </div>
             </div>
             <div class="footer-links-col">
-                <h4 class="footer-title">Contact rapide</h4>
+                <h4 class="footer-title">Contact</h4>
                 <div class="footer-links">
-                    <a href="mailto:contact@hrlcentreuhai.org" class="footer-link"><i class="fas fa-envelope"></i>
-                        contact@hrlcentreuhai.org</a>
-                    <a href="https://www.hrlcentreuhai.org" class="footer-link"><i class="fas fa-globe"></i>
-                        www.hrlcentreuhai.org</a>
+                    <a href="mailto:contact@hrlcentreuhai.org" class="footer-link"><i class="fas fa-envelope"></i> contact@hrlcentreuhai.org</a>
+                    <a href="https://www.hrlcentreuhai.org" class="footer-link"><i class="fas fa-globe"></i> www.hrlcentreuhai.org</a>
                     <span class="footer-link"><i class="fab fa-twitter"></i> @hrlcentreuhai</span>
                 </div>
             </div>
         </div>
         <div class="container footer-bottom">
-            <div class="legal-links" style="display: flex; gap: 1.5rem;">
+            <div class="legal-links" style="display:flex; gap:1.5rem;">
                 <a href="#">Mentions légales</a>
                 <a href="#">Politique de confidentialité</a>
-                <a href="#">Politique cookies</a>
             </div>
             <p>&copy; 2026 Centre UHAI – Tous droits réservés.</p>
         </div>
     </footer>
 
+    <script src="/js/cms.js"></script>
+    <script src="/js/ui.js"></script>
     <script src="/js/main.js"></script>
 </body>
-
 </html>

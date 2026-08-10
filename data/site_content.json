@@ -1,0 +1,103 @@
+{
+  "general": {
+    "siteName": "Centre UHAI",
+    "email": "contact@hrlcentreuhai.org",
+    "phone": "+243 997 123 456",
+    "address": "Goma, Nord-Kivu, République Démocratique du Congo",
+    "logo": "/images/logo.png"
+  },
+  "home": {
+    "hero": {
+      "slides": [
+        {
+          "image": "/images/hero_image.png",
+          "title": "Centre UHAI",
+          "description": "Le Centre UHAI accompagne les communautés de l’Est de la République Démocratique du Congo pour répondre à la transmission intergénérationnelle du traumatisme et de la violence, et bâtir une société où chaque citoyen recouvre sa guérison, se reconstruit et vit pleinement en paix.",
+          "btn1Text": "Découvrir notre approche",
+          "btn1Url": "/approach",
+          "btn2Text": "Soutenir un projet",
+          "btn2Url": "/projects"
+        },
+        {
+          "image": "/images/hero_image_2.jpeg",
+          "title": "La sociothérapie à la base.",
+          "description": "Une approche communautaire participative qui renforce la résilience collective face aux épreuves vécues et consolide la cohésion sociale.",
+          "btn1Text": "Nos actions",
+          "btn1Url": "/actions",
+          "btn2Text": "Nous contacter",
+          "btn2Url": "/contact"
+        }
+      ]
+    },
+    "mission": {
+      "title": "Notre mission en bref",
+      "p1": "Nous sommes une organisation non gouvernementale (ASBL) qui déploie le programme HRL — Healing, Rebuilding and Living — dans toute la partie Est de la RDC. Notre approche est communautaire, accessible à tous, et orientée vers la cohésion sociale.",
+      "p2": "À travers la sociothérapie à la base, l’éducation à la paix et le plaidoyer, nous donnons aux communautés les moyens de transformer leurs blessures en force collective."
+    },
+    "pillars": [
+      {
+        "icon": "fas fa-hand-holding-heart",
+        "title": "Guérir",
+        "desc": "Accompagner les personnes traumatisées à exprimer la perte, le deuil et la colère, et retrouver leur capacité intérieure de guérison."
+      },
+      {
+        "icon": "fas fa-people-carry",
+        "title": "Reconstruire",
+        "desc": "Renforcer la cohésion sociale, la résolution non-violente des conflits et l’éducation à la paix dans les communautés à la base."
+      },
+      {
+        "icon": "fas fa-dove",
+        "title": "Vivre",
+        "desc": "Bâtir des communautés saines, équitables et résilientes où chacun trouve sa place et participe pleinement à la vie collective."
+      }
+    ],
+    "stats": [
+      {
+        "target": "12",
+        "suffix": "+",
+        "label": "Personnes touchées par la sociothérapie"
+      },
+      {
+        "target": "20",
+        "suffix": "+",
+        "label": "Formations tenues avec les asbl de la société civile et étudiants."
+      },
+      {
+        "target": "600",
+        "suffix": "+",
+        "label": "Sessions tenues avec la communauté ayant été exposée aux traumatismes."
+      }
+    ]
+  },
+  "about": {
+    "title": "Qui sommes-nous ?",
+    "subtitle": "Découvrez notre histoire, nos valeurs et l'équipe derrière le Centre UHAI.",
+    "history": "Fondé pour répondre aux défis humanitaires et psychologiques de l'Est de la RDC, le Centre UHAI œuvre chaque jour pour que les communautés affectées par les conflits armés se relèvent et bâtissent un avenir pacifique."
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Projet de Paix au Nord-Kivu",
+      "description": "Soutien psycho-social et groupes de sociothérapie dans les camps de déplacés de Goma.",
+      "category": "peace",
+      "progress": 75
+    },
+    {
+      "id": 2,
+      "title": "Sensibilisation VBG à Bukavu",
+      "description": "Campagne communautaire pour la protection des droits de la femme et lutte contre les violences.",
+      "category": "peace",
+      "progress": 90
+    }
+  ],
+  "faq": [
+    {
+      "question": "Qu'est-ce que l'approche HRL ?",
+      "answer": "HRL signifie Healing, Rebuilding and Living. C'est une méthodologie structurée qui permet de guérir les blessures psychologiques, de reconstruire les liens sociaux et de vivre ensemble de manière pacifique."
+    },
+    {
+      "question": "Comment puis-je soutenir le Centre UHAI ?",
+      "answer": "Vous pouvez faire un don en ligne, devenir bénévole ou établir un partenariat institutionnel en nous contactant directement via notre formulaire de contact."
+    }
+  ]
+}
