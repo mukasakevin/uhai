@@ -19,3 +19,25 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+# Build / cache / coverage
+coverage/
+.nyc_output/
+dist/
+build/
+.cache/
+.next/
+.parcel-cache/
+
+# Local env files (keep .env.example in repo)
+.env.local
+.env.*.local
+
+# Ensure `public/` media are tracked (don't accidentally ignore them)
+!public/
+!public/**/*
+!public/**/*.mp4
+!public/**/*.webm
+!public/**/*.ogg
+
+# Temporary video folders (if you need to ignore large source folders)
+tmp_videos/
