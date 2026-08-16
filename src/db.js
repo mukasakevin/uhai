@@ -3,7 +3,13 @@
  * Gère la logique : DB → JSON fallback → données seed en dernier recours.
  */
 
-const sqlite3 = require('sqlite3').verbose();
+let sqlite3;
+try {
+    sqlite3 = require('sqlite3').verbose();
+} catch (err) {
+    console.warn("⚠️ Impossible de charger sqlite3 (normal sur Vercel):", err.message);
+    sqlite3 = null;
+}
 const path    = require('path');
 const fs      = require('fs').promises;
 const CAUSES  = require('./data/seed');
@@ -14,6 +20,7 @@ let _db = null;
 
 function getDb() {
     if (_db) return _db;
+    if (!sqlite3) return null;
     const dbPath = path.resolve(__dirname, '..', process.env.DB_PATH || 'data/uhai.db');
     _db = new sqlite3.Database(dbPath, err => {
         if (err) console.error('Erreur connexion SQLite :', err.message);
