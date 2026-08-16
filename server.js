@@ -27,6 +27,10 @@ app.use((req, res) => {
 });
 
 // ─── Démarrage ────────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-    console.log(`✅ Serveur Centre UHAI démarré sur http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`✅ Serveur Centre UHAI démarré sur http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
